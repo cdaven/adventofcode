@@ -24,5 +24,5 @@ where
 fn main() {
     let lines: Vec<String> = read_lines("data/day3.txt").into_iter().map(|x| x.unwrap()).collect();
 
-    go3(lines);
+    go3b(lines);
 }
