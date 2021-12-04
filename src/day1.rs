@@ -5,7 +5,7 @@ use std::path::Path;
 
 /// Read file into lines.
 /// Copied from https://doc.rust-lang.org/stable/rust-by-example/std_misc/file/read_lines.html
-fn read_lines<P>(filename: P) -> io::Result<io::Lines<io::BufReader<File>>>
+pub fn read_lines<P>(filename: P) -> io::Result<io::Lines<io::BufReader<File>>>
 where
     P: AsRef<Path>,
 {
