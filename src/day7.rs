@@ -6,6 +6,7 @@ pub fn go7a(numbers_str: &str) {
         .map(|n| n.parse::<i32>().unwrap())
         .collect();
     numbers.sort();
+    // It seems the median is the optimum
     let median = numbers[numbers.len() / 2];
     println!("Median {}", median);
 
@@ -23,7 +24,7 @@ fn fuel(distance: i32) -> i32 {
     if distance == 0 {
         0
     } else {
-        (1..(distance + 1))
+        (1..(distance.abs() + 1))
             .into_iter()
             .reduce(|acc, n| acc + n)
             .unwrap()
@@ -33,7 +34,7 @@ fn fuel(distance: i32) -> i32 {
 fn calc_total_fuel(numbers: &Vec<i32>, target: i32) -> i32 {
     numbers
         .iter()
-        .map(|n| fuel((n - target).abs()))
+        .map(|n| fuel(n - target))
         .collect::<Vec<i32>>()
         .iter()
         .sum()
@@ -41,6 +42,7 @@ fn calc_total_fuel(numbers: &Vec<i32>, target: i32) -> i32 {
 
 fn find_minimum_fuel(numbers: &Vec<i32>) -> i32 {
     let average = (numbers.iter().sum::<i32>() as f32 / numbers.len() as f32).round();
+    // Create range of probable optimums
     let min = (average * 0.8) as i32;
     let max = (average * 1.2) as i32;
     (min..max)
