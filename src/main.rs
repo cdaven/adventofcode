@@ -7,11 +7,13 @@ mod day1;
 mod day2;
 mod day3;
 mod day4;
+mod day7;
 
 pub use day1::*;
 pub use day2::*;
 pub use day3::*;
 pub use day4::*;
+pub use day7::*;
 
 /// Read file into lines.
 /// Copied from https://doc.rust-lang.org/stable/rust-by-example/std_misc/file/read_lines.html
@@ -24,7 +26,7 @@ where
 }
 
 fn main() {
-    let lines: Vec<String> = read_lines("data/day4.txt").into_iter().map(|x| x.unwrap()).collect();
+    let lines: Vec<String> = read_lines("data/day7.txt").into_iter().map(|x| x.unwrap()).collect();
 
-    go4a(lines);
+    go7b(&lines[0]);
 }
