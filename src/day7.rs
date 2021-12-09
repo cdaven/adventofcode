@@ -1,5 +1,3 @@
-use std::collections::HashSet;
-
 pub fn go7a(numbers_str: &str) {
     let mut numbers: Vec<i32> = numbers_str
         .split(',')
